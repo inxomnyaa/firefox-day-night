@@ -1,0 +1,84 @@
+/* about: pages (settings, add-ons, ...): same colors as the new tab page in each mode */
+@-moz-document url-prefix("about:") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      --background-color-canvas: #c98a5a !important;
+      --background-color-box: #eccaa8 !important;
+      --in-content-page-background: #c98a5a !important;
+      --in-content-box-background: #eccaa8 !important;
+      --card-background-color: #eccaa8 !important;
+      --button-background-color: #eccaa8 !important;
+      --button-background-color-hover: #f3d8bd !important;
+      --button-background-color-active: #f8e4d0 !important;
+      --border-color-card: #b5703f !important;
+      --color-accent-primary: #5c2a0a !important;
+      --color-accent-primary-hover: #4a1f05 !important;
+      --color-accent-primary-active: #3a1803 !important;
+    }
+    /* selected sidebar entry (about:addons, about:preferences = moz-page-nav-button):
+     * peach box + dark text, like the lighter purple box in night mode.
+     * Set on the element itself: the component redefines these on :host. */
+    moz-page-nav-button {
+      --page-nav-button-background-color-selected: #eccaa8 !important;
+      --page-nav-button-text-color-selected: #4a1f05 !important;
+      --page-nav-button-indicator-background-color: #5c2a0a !important;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color-canvas: #1f1429 !important;
+      --background-color-box: #2b1a3b !important;
+      --in-content-page-background: #1f1429 !important;
+      --in-content-box-background: #2b1a3b !important;
+      --card-background-color: #2b1a3b !important;
+      --button-background-color: #3a2350 !important;
+      --button-background-color-hover: #4a2f63 !important;
+      --button-background-color-active: #5b3a78 !important;
+      --border-color-card: #4f3569 !important;
+      --color-accent-primary: #c79bf2 !important;
+      --color-accent-primary-hover: #d6b3f6 !important;
+    }
+  }
+}
+
+/* New tab / home page background to match userChrome.css */
+@-moz-document url("about:newtab"), url("about:home"), url("about:blank") {
+  @media (prefers-color-scheme: dark) {
+    :root, body { --newtab-background-color: #1f1429 !important; background-color: #1f1429 !important; }
+    /* grey search box, shortcut tiles, customize panel, buttons -> purple */
+    :root, body {
+      --newtab-background-color-secondary: #2b1a3b !important;
+      --newtab-background-card: #2b1a3b !important;
+      --newtab-element-hover-color: #3a2350 !important;
+      --card-background-color: #2b1a3b !important;
+      --background-color-box: #2b1a3b !important;
+      --toolbar-field-background-color: #2b1a3b !important;
+      --toolbar-field-background-color-focus: #2b1a3b !important;
+      --button-background-color: #3a2350 !important;
+      --button-background-color-hover: #4a2f63 !important;
+      --button-background-color-active: #5b3a78 !important;
+      --border-color-card: #4f3569 !important;
+      --color-accent-primary: #c79bf2 !important;
+      --color-accent-primary-hover: #d6b3f6 !important;
+    }
+  }
+  @media (prefers-color-scheme: light) {
+    :root, body { --newtab-background-color: #c98a5a !important; background-color: #c98a5a !important; }
+    /* white search box, tiles, buttons -> warm mid-tones (no flashbang) */
+    :root, body {
+      --newtab-background-color-secondary: #eccaa8 !important;
+      --newtab-background-card: #eccaa8 !important;
+      --newtab-element-hover-color: #f3d8bd !important;
+      --card-background-color: #eccaa8 !important;
+      --background-color-box: #eccaa8 !important;
+      --toolbar-field-background-color: #eccaa8 !important;
+      --toolbar-field-background-color-focus: #eccaa8 !important;
+      --button-background-color: #eccaa8 !important;
+      --button-background-color-hover: #f3d8bd !important;
+      --button-background-color-active: #f8e4d0 !important;
+      --border-color-card: #b5703f !important;
+      --color-accent-primary: #8a471b !important;
+      --color-accent-primary-hover: #7a3f18 !important;
+    }
+  }
+}

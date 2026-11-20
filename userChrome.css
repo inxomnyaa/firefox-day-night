@@ -1,0 +1,117 @@
+/* Auto day/night colors on top of "System theme — auto".
+ * Dark = purple (matches the blurred GNOME panel, ~#48245d)
+ * Light = orange (based on #8a471b)
+ * Requires: toolkit.legacyUserProfileCustomizations.stylesheets = true
+ * and the active theme set to "System theme — auto". */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-frame:        #2b1a3b;
+    --c-frame-dim:    #251733;
+    --c-toolbar:      #3a2350;
+    --c-text:         #f4ecfa;
+    --c-text-dim:     #cbb8dc;
+    --c-field:        #4a2f63;
+    --c-field-focus:  #22142f;
+    --c-field-text:   #f4ecfa;
+    --c-popup:        #2b1a3b;
+    --c-popup-text:   #f4ecfa;
+    --c-popup-border: #4f3569;
+    --c-highlight:    #5b3a78;
+    --c-highlight-text: #ffffff;
+    --c-hover:        rgba(255, 255, 255, 0.10);
+    --c-active:       rgba(255, 255, 255, 0.18);
+    --c-accent:       #c79bf2;
+    --c-backdrop:     #1f1429;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --c-frame:        #8a471b;
+    --c-frame-dim:    #7a3f18;
+    --c-toolbar:      #9c5524;
+    --c-text:         #fff8f2;
+    --c-text-dim:     #f3dccb;
+    --c-field:        #b06630;
+    --c-field-focus:  #7a3f18;
+    --c-field-text:   #fff8f2;
+    --c-popup:        #8a471b;
+    --c-popup-text:   #fff8f2;
+    --c-popup-border: #b5703f;
+    --c-highlight:    #b06630;
+    --c-highlight-text: #ffffff;
+    --c-hover:        rgba(255, 255, 255, 0.16);
+    --c-active:       rgba(255, 255, 255, 0.26);
+    --c-accent:       #ffc58f;
+    --c-backdrop:     #c98a5a;
+  }
+}
+
+:root:not([lwtheme]) {
+  /* tab strip / title bar */
+  --toolbox-background-color: var(--c-frame) !important;
+  --toolbox-background-color-inactive: var(--c-frame-dim) !important;
+  --toolbox-text-color: var(--c-text) !important;
+  --toolbox-text-color-inactive: var(--c-text-dim) !important;
+
+  /* nav bar, bookmarks bar */
+  --toolbar-background-color: var(--c-toolbar) !important;
+  --toolbar-text-color: var(--c-text) !important;
+  --toolbarbutton-background-color-hover: var(--c-hover) !important;
+  --toolbarbutton-background-color-active: var(--c-active) !important;
+  --toolbarbutton-icon-fill: var(--c-text) !important;
+
+  /* tabs */
+  --tab-background-color-selected: var(--c-toolbar) !important;
+  --tab-text-color-selected: var(--c-text) !important;
+  --tab-background-color-hover: var(--c-hover) !important;
+  --lwt-tab-line-color: var(--c-accent) !important;
+
+  /* URL / search field */
+  --toolbar-field-background-color: var(--c-field) !important;
+  --toolbar-field-text-color: var(--c-field-text) !important;
+  --toolbar-field-border-color: transparent !important;
+  --toolbar-field-background-color-focus: var(--c-field-focus) !important;
+  --toolbar-field-text-color-focus: var(--c-field-text) !important;
+  --toolbar-field-border-color-focus: var(--c-accent) !important;
+  --urlbarview-background-color-selected: var(--c-highlight) !important;
+  --urlbarview-text-color-selected: var(--c-highlight-text) !important;
+  --urlbarview-background-color-hover: var(--c-highlight) !important;
+
+  /* menus, panels, popups */
+  --panel-background-color: var(--c-popup) !important;
+  --panel-text-color: var(--c-popup-text) !important;
+  --panel-border-color: var(--c-popup-border) !important;
+  --panel-icon-fill: var(--c-popup-text) !important;
+  --button-background-color-hover: var(--c-highlight) !important;
+  --button-text-color-hover: var(--c-highlight-text) !important;
+
+  /* sidebar + area around the page */
+  --sidebar-background-color: var(--c-frame) !important;
+  --sidebar-text-color: var(--c-text) !important;
+  --sidebar-border-color: transparent !important;
+  --tabpanel-background-color: var(--c-backdrop) !important;
+  --chrome-content-separator-color: transparent !important;
+  --tabs-navbar-separator-color: transparent !important;
+
+  /* accents */
+  --focus-outline-color: var(--c-accent) !important;
+  --color-accent-primary: var(--c-accent) !important;
+  /* download button / extension dot ("attention" color), was the purple GNOME accent */
+  --toolbarbutton-icon-fill-attention: var(--c-accent) !important;
+  --toolbarbutton-icon-fill-attention-text: var(--c-frame) !important;
+  --attention-dot-color: var(--c-accent) !important;
+}
+
+/* native-styled context menus */
+:root:not([lwtheme]) menupopup {
+  --panel-background-color: var(--c-popup) !important;
+  --panel-text-color: var(--c-popup-text) !important;
+  --panel-border-color: var(--c-popup-border) !important;
+}
+:root:not([lwtheme]) menupopup menu[_moz-menuactive],
+:root:not([lwtheme]) menupopup menuitem[_moz-menuactive] {
+  background-color: var(--c-highlight) !important;
+  color: var(--c-highlight-text) !important;
+}
